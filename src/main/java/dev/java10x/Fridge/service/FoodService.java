@@ -2,8 +2,11 @@
 
 package dev.java10x.Fridge.service;
 
+import dev.java10x.Fridge.model.Food;
 import dev.java10x.Fridge.repository.FoodRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 // @Service indica que esta classe é um componente de serviço.
 // O Spring cria e gerencia essa classe para ser usada como serviço para controllers.

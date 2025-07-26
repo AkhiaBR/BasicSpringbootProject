@@ -2,6 +2,7 @@
 
 package dev.java10x.Fridge.repository;
 
+import dev.java10x.Fridge.model.Food;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 // JpaRepository é uma interface do Spring Data que já traz CRUD completo

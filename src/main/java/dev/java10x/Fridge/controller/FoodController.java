@@ -3,9 +3,11 @@
 
 package dev.java10x.Fridge.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import dev.java10x.Fridge.model.Food;
+import dev.java10x.Fridge.service.FoodService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 // @RestController indica que esta classe é um controlador REST, ou seja,
 // ela vai tratar requisições HTTP e retornar respostas JSON diretamente,
@@ -27,7 +29,13 @@ public class FoodController {
 
     // Trata requisição GET para "/food", retorna a lista de todos os alimentos.
     @GetMapping
-    public List<Food> getAll() {return foodService.getAll()}
+    public List<Food> getAll() {return foodService.getAll();}
 
+    // Recebe um alimento do cliente (JSON via POST) e salva no banco de dados.
+    // Retorna o alimento salvo.
     @PostMapping
+    public Food create(@RequestBody Food food) {return foodService.save(food);}
+
+    @DeleteMapping("/{id}")
+    public void delete (@PathVariable Long id) {foodService.delete(id);}
 }
